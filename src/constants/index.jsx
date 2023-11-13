@@ -353,7 +353,7 @@ const projects = [
   {
     name: "Web para Casa de Comidas",
     description:
-      "Apliación web que permite a los usuarios comprobar el menú del día sin la necesidad de llamar, así como conocer un poco más de la historia del restaurante.",
+      "Aplicación web que permite a los usuarios comprobar el menú del día sin la necesidad de llamar, así como conocer un poco más de la historia del restaurante.",
     tags: [
       { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
       { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
