@@ -1,0 +1,129 @@
+[
+  {
+    "title": "¿Quieres que trabajemos juntos?",
+    "company_name": "Morenno",
+    "url": "https://www.linkedin.com/in/morenno/",
+    "icon": "https://morenno.es/db/logos/question.png",
+    "iconBg": "linear-gradient(305deg, #1c5a73, #c13385)",
+    "date": "Presente",
+    "points": [],
+    "skills": [
+      { "icon": "mail", "name": "info@morenno.net", "color": "#FFC86B" },
+      { "icon": "cv", "name": "Descarga mi CV", "color": "#FFC86B" }
+    ]
+  },
+  {
+    "title": "Curso Three.js Journey",
+    "company_name": "por Bruno Simon",
+    "url": "https://threejs-journey.com/certificate/view/25204",
+    "icon": "https://morenno.es/db/logos/threejs.png",
+    "iconBg": "#715df2",
+    "date": "Mar 2023 - Jun 2023",
+    "points": [
+      "Uso de físicas, modelos 3D personalizados, iluminación y partículas.",
+      "Estructura de código optimizada para proyectos grandes.",
+      "Sombreado y post-procesado con WebGL y archivos .glsl.",
+      "Uso de React Three Fiber."
+    ],
+    "skills": [
+      { "icon": "three", "name": "Three.js", "color": "#7562F280" },
+      { "icon": "react", "name": "React", "color": "#58C3DF80" },
+      {
+        "icon": "vite",
+        "name": "Vite",
+        "color": "linear-gradient(135deg, rgba(71, 202, 255, 0.5) 0%, rgba(190, 52, 254, 0.5) 100%)"
+      },
+      { "icon": "npm", "name": "npm", "color": "#CD3E3D80" },
+      { "icon": "blender", "name": "Blender", "color": "#EB7A0880" }
+    ]
+  },
+  {
+    "title": "Desarrollador de App Móvil",
+    "company_name": "MSInvs",
+    "url": "https://msinvs.com",
+    "icon": "https://morenno.es/db/logos/msinvs.png",
+    "iconBg": "#6CA7CF",
+    "date": "Jul 2022 - Dic 2022",
+    "points": [
+      "Escucha, gestión de tiempo y penasamiénto crítico, ya que aunque tuviera libertad, las decisiones y tiempos tenían que ser aprobadas por el jefe de la empresa.",
+      "Cambio de imagen de marca.",
+      "Reestructuración, rediseño y mejora de la aplicación.",
+      "Desarrollo y mantenimiento full-stack de la aplicación.",
+      "Desarrollo front-end con React, usando Expo y otras tecnologías relacionadas.",
+      "Desarrollo back-end con Node.js, MySQL y otras tecnologías relacionadas.",
+      "Implementación de diseño adaptable, asegurando la compatibilidad.",
+      "Gestión de versiones en Git."
+    ],
+    "skills": [
+      { "icon": "react", "name": "React", "color": "#58C3DF80" },
+      { "icon": "expo", "name": "Expo", "color": "#08081B80" },
+      { "icon": "node", "name": "Node.js", "color": "#86CF2F80" },
+      { "icon": "npm", "name": "npm", "color": "#CD3E3D80" },
+      { "icon": "js", "name": "JavaScript", "color": "#F7E02580" },
+      { "icon": "mysql", "name": "MySQL", "color": "#1A6A9780" },
+      { "icon": "git", "name": "Git", "color": "#F1553A80" },
+      { "icon": "uxui", "name": "UX/UI", "color": "#08081B80" },
+      { "icon": "figma", "name": "Figma", "color": "#08081B80" },
+      {
+        "icon": "adobe",
+        "name": "Adobe CC",
+        "color": "conic-gradient(from 0deg at 50% 50%, rgba(255, 0, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(0, 255, 0, 0.5) 38%, rgba(0, 255, 255, 0.5) 63%, rgba(255, 0, 255, 0.5) 75%, rgba(255, 0, 0, 0.5) 100%)"
+      }
+    ]
+  },
+
+  {
+    "title": "Elaboración de Contenido Informativo",
+    "company_name": "Servicio Integrado de Empleo en la UPV",
+    "url": "https://sie.webs.upv.es/es",
+    "icon": "https://morenno.es/db/logos/upv.png",
+    "iconBg": "#E6DEDD",
+    "date": "Oct 2021 - Jul 2022",
+    "points": [
+      "Comunicación, escucha, gestión de tiempo y resolución de problemas, ya que eran necesarios para entender cómo y dónde el contenido tenía que ser publicado.",
+      "Escritura y publicación de noticias.",
+      "Maquetación web.",
+      "Mantenimiento, actualización y corrección de errores en WordPress."
+    ],
+    "skills": [
+      { "icon": "html", "name": "HTML", "color": "#E5532D80" },
+      { "icon": "css", "name": "CSS", "color": "#3D9DD780" },
+      { "icon": "wordpress", "name": "WordPress", "color": "#28799E80" }
+    ]
+  },
+  {
+    "title": "Grado en Diseño y Tecnologías Creativas",
+    "company_name": "Universitat Politècnica de València",
+    "url": "https://www.upv.es/titulaciones/GDTC/",
+    "icon": "https://morenno.es/db/logos/upv.png",
+    "iconBg": "#E6DEDD",
+    "date": "Sep 2018 - Jul 2022",
+    "points": [
+      "Comunicación, colaboración y pensamiento crítico ya que casi todos los proyectos eran en grupo.",
+      "Aprendizaje de HTML, CSS, JS, PHP y MySQL.",
+      "Diseño y prueba de interfaces UX/UI tanto con la Suite Adobe como con Figma.",
+      "Desarrollo de videojuegos con Unity y C#.",
+      "Gestión de versiones en Git.",
+      "Modelado 3D, rendering y animación en Blender."
+    ],
+    "skills": [
+      { "icon": "html", "name": "HTML", "color": "#E5532D80" },
+      { "icon": "css", "name": "CSS", "color": "#3D9DD780" },
+      { "icon": "js", "name": "JavaScript", "color": "#F7E02580" },
+      { "icon": "wordpress", "name": "WordPress", "color": "#28799E80" },
+      { "icon": "php", "name": "PHP", "color": "#8D96C080" },
+      { "icon": "mysql", "name": "MySQL", "color": "#1A6A9780" },
+      { "icon": "uxui", "name": "UX/UI", "color": "#08081B80" },
+      {
+        "icon": "adobe",
+        "name": "Adobe CC",
+        "color": "conic-gradient(from 0deg at 50% 50%, rgba(255, 0, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(0, 255, 0, 0.5) 38%, rgba(0, 255, 255, 0.5) 63%, rgba(255, 0, 255, 0.5) 75%, rgba(255, 0, 0, 0.5) 100%)"
+      },
+      { "icon": "figma", "name": "Figma", "color": "#08081B80" },
+      { "icon": "unity", "name": "Unity", "color": "#08081B80" },
+      { "icon": "csharp", "name": "C#", "color": "#6C287D80" },
+      { "icon": "git", "name": "Git", "color": "#F1553A80" },
+      { "icon": "blender", "name": "Blender", "color": "#EB7A0880" }
+    ]
+  }
+]

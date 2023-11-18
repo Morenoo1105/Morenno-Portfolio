@@ -10,6 +10,8 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { inView, inViewInitial } from "../utils/motion";
 
+import { cv } from "../assets";
+
 import StackIcon from "./iconComponents/stackIcon";
 
 const ExperienceCard = ({ experience }) => (
@@ -57,21 +59,68 @@ const ExperienceCard = ({ experience }) => (
           key={`experience-point-${index}`}
           className="text-primaryText text-[14px] pl-1 tracking-wider"
         >
-          {point}
+          {point == "mail" ? (
+            <>
+              Contáctame en{" "}
+              <a
+                className="text-secondary hover:text-primaryText font-bold"
+                href="mailto:info@morenno.net"
+              >
+                info@morenno.net
+              </a>
+            </>
+          ) : point == "cv" ? (
+            <>
+              O descarga mi CV{" "}
+              <a
+                className="text-secondary hover:text-primaryText font-bold"
+                href="mailto:info@morenno.net"
+              >
+                aquí
+              </a>
+            </>
+          ) : (
+            point
+          )}
         </li>
       ))}
     </ul>
     <div className="flex justify-around items-center w-full mt-5 gap-4 flex-wrap">
       {experience.skills.map((skill, index) => (
-        <div
-          key={`experience-skill-${index}`}
-          className={`flex items-center px-2 py-0 gap-2 rounded-[4px] text-primaryText`}
-          style={{ background: skill.color }}
-        >
-          <div>
-            <StackIcon icon={skill.icon} />
-          </div>
-          <div>{skill.name}</div>
+        <div key={`experience-skill-${index}`}>
+          {skill.icon == "mail" ? (
+            <a
+              href={`mailto:${skill.name}`}
+              className={`flex items-center px-4 py-2 gap-2 rounded-[4px] text-primary font-bold bg-[#FFC86B] hover:bg-[#FFC86B80] transition-colors`}
+            >
+              <div>
+                <StackIcon icon={skill.icon} />
+              </div>
+              <div>{skill.name}</div>
+            </a>
+          ) : skill.icon == "cv" ? (
+            <a
+              href={cv}
+              download="CV-Pablo Moreno Martinez"
+              target="_blank"
+              className={`flex items-center px-4 py-2 gap-2 rounded-[4px] text-primary font-bold bg-[#FFC86B] hover:bg-[#FFC86B80] transition-colors`}
+            >
+              <div>
+                <StackIcon icon={skill.icon} />
+              </div>
+              <div>{skill.name}</div>
+            </a>
+          ) : (
+            <div
+              className={`flex items-center px-2 py-0 gap-2 rounded-[4px] text-primaryText`}
+              style={{ background: skill.color }}
+            >
+              <div>
+                <StackIcon icon={skill.icon} />
+              </div>
+              <div>{skill.name}</div>
+            </div>
+          )}
         </div>
       ))}
     </div>

@@ -15,11 +15,10 @@ import {
   TbBrandUnity,
   TbBrandVite,
   TbBrandWordpress,
+  TbMailFilled,
   TbUxCircle,
 } from "react-icons/tb";
 
-import { BiLogoBlender } from "react-icons/bi";
-import { RiJavascriptLine } from "react-icons/ri";
 import {
   SiAdobecreativecloud,
   SiExpo,
@@ -29,6 +28,10 @@ import {
   SiAdobepremierepro,
   SiAdobeillustrator,
 } from "react-icons/si";
+
+import { FaFileArrowDown } from "react-icons/fa6";
+import { BiLogoBlender } from "react-icons/bi";
+import { RiJavascriptLine } from "react-icons/ri";
 
 const StackIcon = ({ icon, className }) => (
   <>
@@ -58,6 +61,9 @@ const StackIcon = ({ icon, className }) => (
     {icon == "ae" && <SiAdobeaftereffects className={className} />}
     {icon == "pr" && <SiAdobepremierepro className={className} />}
     {icon == "ai" && <SiAdobeillustrator className={className} />}
+
+    {icon == "mail" && <TbMailFilled className={className} />}
+    {icon == "cv" && <FaFileArrowDown className={className} />}
   </>
 );
 
