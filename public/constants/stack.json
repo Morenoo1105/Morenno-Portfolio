@@ -1,0 +1,126 @@
+[
+  {
+    "label": "Diseño",
+    "text": "Este es un pequeño resumen de lo que soy capaz. Como estudié un Grado en Diseño, el software usado tenía que aparecer, teniendo no sólo mi propia experiencia sino los comentarios de los expertos que me enseñaron e inspiraron.",
+    "logos": [
+      {
+        "icon": "figma",
+        "name": "Figma",
+        "color": "#08081B80"
+      },
+      {
+        "icon": "ps",
+        "name": "Adobe Photoshop",
+        "color": "#31A8FF80"
+      },
+      {
+        "icon": "pr",
+        "name": "Adobe Premiere Pro",
+        "color": "#9C9CFF80"
+      },
+      {
+        "icon": "ai",
+        "name": "Adobe Illustrator",
+        "color": "#FF9D0880"
+      },
+      {
+        "icon": "ae",
+        "name": "Adobe After Effects",
+        "color": "#9A9AFF80"
+      },
+      {
+        "icon": "blender",
+        "name": "Blender",
+        "color": "#EB7A0880"
+      }
+    ]
+  },
+  {
+    "label": "Front-end",
+    "text": "El front-end es la rama con la que más disfruto, ya que une ambos diseño y programación. Me siento más cómodo trabajando con React y Tailwind, pero si quiero poder conseguir los mejores resultados, ¡también tengo que conocer las bases!",
+    "logos": [
+      {
+        "icon": "html",
+        "name": "HTML",
+        "color": "#E5532D80"
+      },
+      {
+        "icon": "css",
+        "name": "CSS",
+        "color": "#3D9DD780"
+      },
+      {
+        "icon": "js",
+        "name": "JavaScript",
+        "color": "#F7E02580"
+      },
+      {
+        "icon": "react",
+        "name": "React",
+        "color": "#58C3DF80"
+      },
+      {
+        "icon": "tailwind",
+        "name": "Tailwind CSS",
+        "color": "#3EBFF880"
+      },
+      {
+        "icon": "three",
+        "name": "Three.js",
+        "color": "#7562F280"
+      }
+    ]
+  },
+  {
+    "label": "Back-end",
+    "text": "Por otro lado, no he experimentado demasiado con la tecnologías de back-end. He desarrollado alguna aplicación CRUD utilizando Node.js y bases de datos MySQL, o PHP y MySQL. También fui el responsable del diseño de las tablas de dichas bases de datos.",
+    "logos": [
+      {
+        "icon": "php",
+        "name": "PHP",
+        "color": "#8D96C080"
+      },
+      {
+        "icon": "node",
+        "name": "Node.js",
+        "color": "#86CF2F80"
+      },
+      {
+        "icon": "mysql",
+        "name": "MySQL",
+        "color": "#1A6A9780"
+      }
+    ]
+  },
+  {
+    "label": "Herramientas",
+    "text": "Para poder trabajar de la manera más eficiente, era prácticamente obligatorio conocer otro tipo de tecnologías y herramientas. La principal y casi esencial es npm. También git, en el caso de querer tener control sobre las versiones de mis proyectos.",
+    "logos": [
+      {
+        "icon": "git",
+        "name": "Git",
+        "color": "#F1553A80"
+      },
+      {
+        "icon": "vite",
+        "name": "Vite",
+        "color": "linear-gradient(135deg, rgba(71, 202, 255, 0.5) 0%, rgba(190, 52, 254, 0.5) 100%)"
+      },
+      {
+        "icon": "npm",
+        "name": "npm",
+        "color": "#CD3E3D80"
+      },
+      {
+        "icon": "expo",
+        "name": "Expo",
+        "color": "#08081B80"
+      },
+      {
+        "icon": "wordpress",
+        "name": "WordPress",
+        "color": "#28799E80"
+      }
+    ]
+  }
+]

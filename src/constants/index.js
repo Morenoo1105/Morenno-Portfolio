@@ -8,38 +8,6 @@ import {
   msiWeb,
 } from "../assets";
 
-import {
-  TbApi,
-  TbBrandCSharp,
-  TbBrandCss3,
-  TbBrandFigma,
-  TbBrandGit,
-  TbBrandHtml5,
-  TbBrandMysql,
-  TbBrandNodejs,
-  TbBrandNpm,
-  TbBrandPhp,
-  TbBrandReact,
-  TbBrandTailwind,
-  TbBrandThreejs,
-  TbBrandUnity,
-  TbBrandVite,
-  TbBrandWordpress,
-  TbUxCircle,
-} from "react-icons/tb";
-
-import { BiLogoBlender as TbBrandBlender } from "react-icons/bi";
-import { RiJavascriptLine } from "react-icons/ri";
-import {
-  SiAdobecreativecloud as TbBrandAdobe,
-  SiExpo as TbBrandExpo,
-  SiBem as TbBrandBem,
-  SiAdobephotoshop,
-  SiAdobeaftereffects,
-  SiAdobepremierepro,
-  SiAdobeillustrator,
-} from "react-icons/si";
-
 export const navLinks = [
   {
     id: "about",
@@ -59,38 +27,42 @@ export const navLinks = [
   },
 ];
 
-const stack = [
+const stack = await fetch("./constants/stack.json").then((response) =>
+  response.json()
+);
+
+const stack2 = [
   {
     label: "Diseño",
     text: "Este es un pequeño resumen de lo que soy capaz. Como estudié un Grado en Diseño, el software usado tenía que aparecer, teniendo no sólo mi propia experiencia sino los comentarios de los expertos que me enseñaron e inspiraron.",
     logos: [
       {
-        icon: <TbBrandFigma className="w-full h-full" />,
+        icon: "figma",
         name: "Figma",
         color: "#08081B80",
       },
       {
-        icon: <SiAdobephotoshop className="w-full h-full" />,
+        icon: "ps",
         name: "Adobe Photoshop",
         color: "#31A8FF80",
       },
       {
-        icon: <SiAdobepremierepro className="w-full h-full" />,
+        icon: "pr",
         name: "Adobe Premiere Pro",
         color: "#9C9CFF80",
       },
       {
-        icon: <SiAdobeillustrator className="w-full h-full" />,
+        icon: "ai",
         name: "Adobe Illustrator",
         color: "#FF9D0880",
       },
       {
-        icon: <SiAdobeaftereffects className="w-full h-full" />,
+        icon: "ae",
         name: "Adobe After Effects",
         color: "#9A9AFF80",
       },
       {
-        icon: <TbBrandBlender className="w-full h-full" />,
+        icon: "blender",
         name: "Blender",
         color: "#EB7A0880",
       },
@@ -101,32 +73,32 @@ const stack = [
     text: "El front-end es la rama con la que más disfruto, ya que une ambos diseño y programación. Me siento más cómodo trabajando con React y Tailwind, pero si quiero poder conseguir los mejores resultados, ¡también tengo que conocer las bases!",
     logos: [
       {
-        icon: <TbBrandHtml5 className="w-full h-full" />,
+        icon: "html",
         name: "HTML",
         color: "#E5532D80",
       },
       {
-        icon: <TbBrandCss3 className="w-full h-full" />,
+        icon: "css",
         name: "CSS",
         color: "#3D9DD780",
       },
       {
-        icon: <RiJavascriptLine className="w-full h-full" />,
+        icon: "js",
         name: "JavaScript",
         color: "#F7E02580",
       },
       {
-        icon: <TbBrandReact className="w-full h-full" />,
+        icon: "react",
         name: "React",
         color: "#58C3DF80",
       },
       {
-        icon: <TbBrandTailwind className="w-full h-full" />,
+        icon: "tailwind",
         name: "Tailwind CSS",
         color: "#3EBFF880",
       },
       {
-        icon: <TbBrandThreejs className="w-full h-full" />,
+        icon: "three",
         name: "Three.js",
         color: "#7562F280",
       },
@@ -137,17 +109,17 @@ const stack = [
     text: "Por otro lado, no he experimentado demasiado con la tecnologías de back-end. He desarrollado alguna aplicación CRUD utilizando Node.js y bases de datos MySQL, o PHP y MySQL. También fui el responsable del diseño de las tablas de dichas bases de datos.",
     logos: [
       {
-        icon: <TbBrandPhp className="w-full h-full" />,
+        icon: "php",
         name: "PHP",
         color: "#8D96C080",
       },
       {
-        icon: <TbBrandNodejs className="w-full h-full" />,
+        icon: "node",
         name: "Node.js",
         color: "#86CF2F80",
       },
       {
-        icon: <TbBrandMysql className="w-full h-full" />,
+        icon: "mysql",
         name: "MySQL",
         color: "#1A6A9780",
       },
@@ -158,28 +130,28 @@ const stack = [
     text: "Para poder trabajar de la manera más eficiente, era prácticamente obligatorio conocer otro tipo de tecnologías y herramientas. La principal y casi esencial es npm. También git, en el caso de querer tener control sobre las versiones de mis proyectos.",
     logos: [
       {
-        icon: <TbBrandGit className="w-full h-full" />,
+        icon: "git",
         name: "Git",
         color: "#F1553A80",
       },
       {
-        icon: <TbBrandVite className="w-full h-full" />,
+        icon: "vite",
         name: "Vite",
         color:
           "linear-gradient(135deg, rgba(71, 202, 255, 0.5) 0%, rgba(190, 52, 254, 0.5) 100%)",
       },
       {
-        icon: <TbBrandNpm className="w-full h-full" />,
+        icon: "npm",
         name: "npm",
         color: "#CD3E3D80",
       },
       {
-        icon: <TbBrandExpo className="w-full h-full" />,
+        icon: "expo",
         name: "Expo",
         color: "#08081B80",
       },
       {
-        icon: <TbBrandWordpress className="w-full h-full" />,
+        icon: "wordpress",
         name: "WordPress",
         color: "#28799E80",
       },
@@ -212,16 +184,16 @@ const experiences = [
       "Uso de React Three Fiber.",
     ],
     skills: [
-      { icon: <TbBrandThreejs />, name: "Three.js", color: "#7562F280" },
-      { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
+      { icon: "three", name: "Three.js", color: "#7562F280" },
+      { icon: "react", name: "React", color: "#58C3DF80" },
       {
-        icon: <TbBrandVite />,
+        icon: "vite",
         name: "Vite",
         color:
           "linear-gradient(135deg, rgba(71, 202, 255, 0.5) 0%, rgba(190, 52, 254, 0.5) 100%)",
       },
-      { icon: <TbBrandNpm />, name: "npm", color: "#CD3E3D80" },
-      { icon: <TbBrandBlender />, name: "Blender", color: "#EB7A0880" },
+      { icon: "npm", name: "npm", color: "#CD3E3D80" },
+      { icon: "blender", name: "Blender", color: "#EB7A0880" },
     ],
   },
   {
@@ -242,17 +214,17 @@ const experiences = [
       "Gestión de versiones en Git.",
     ],
     skills: [
-      { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
-      { icon: <TbBrandExpo />, name: "Expo", color: "#08081B80" },
-      { icon: <TbBrandNodejs />, name: "Node.js", color: "#86CF2F80" },
-      { icon: <TbBrandNpm />, name: "npm", color: "#CD3E3D80" },
-      { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
-      { icon: <TbBrandMysql />, name: "MySQL", color: "#1A6A9780" },
-      { icon: <TbBrandGit />, name: "Git", color: "#F1553A80" },
-      { icon: <TbUxCircle />, name: "UX/UI", color: "#08081B80" },
-      { icon: <TbBrandFigma />, name: "Figma", color: "#08081B80" },
+      { icon: "react", name: "React", color: "#58C3DF80" },
+      { icon: "expo", name: "Expo", color: "#08081B80" },
+      { icon: "node", name: "Node.js", color: "#86CF2F80" },
+      { icon: "npm", name: "npm", color: "#CD3E3D80" },
+      { icon: "js", name: "JavaScript", color: "#F7E02580" },
+      { icon: "mysql", name: "MySQL", color: "#1A6A9780" },
+      { icon: "git", name: "Git", color: "#F1553A80" },
+      { icon: "uxui", name: "UX/UI", color: "#08081B80" },
+      { icon: "figma", name: "Figma", color: "#08081B80" },
       {
-        icon: <TbBrandAdobe />,
+        icon: "adobe",
         name: "Adobe CC",
         color:
           "conic-gradient(from 0deg at 50% 50%, rgba(255, 0, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(0, 255, 0, 0.5) 38%, rgba(0, 255, 255, 0.5) 63%, rgba(255, 0, 255, 0.5) 75%, rgba(255, 0, 0, 0.5) 100%)",
@@ -274,9 +246,9 @@ const experiences = [
       "Mantenimiento, actualización y corrección de errores en WordPress.",
     ],
     skills: [
-      { icon: <TbBrandHtml5 />, name: "HTML", color: "#E5532D80" },
-      { icon: <TbBrandCss3 />, name: "CSS", color: "#3D9DD780" },
-      { icon: <TbBrandWordpress />, name: "WordPress", color: "#28799E80" },
+      { icon: "html", name: "HTML", color: "#E5532D80" },
+      { icon: "css", name: "CSS", color: "#3D9DD780" },
+      { icon: "wordpress", name: "WordPress", color: "#28799E80" },
     ],
   },
   {
@@ -295,23 +267,24 @@ const experiences = [
       "Modelado 3D, rendering y animación en Blender.",
     ],
     skills: [
-      { icon: <TbBrandHtml5 />, name: "HTML", color: "#E5532D80" },
-      { icon: <TbBrandCss3 />, name: "CSS", color: "#3D9DD780" },
-      { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
-      { icon: <TbBrandPhp />, name: "PHP", color: "#8D96C080" },
-      { icon: <TbBrandMysql />, name: "MySQL", color: "#1A6A9780" },
-      { icon: <TbUxCircle />, name: "UX/UI", color: "#08081B80" },
+      { icon: "html", name: "HTML", color: "#E5532D80" },
+      { icon: "css", name: "CSS", color: "#3D9DD780" },
+      { icon: "js", name: "JavaScript", color: "#F7E02580" },
+      { icon: "wordpress", name: "WordPress", color: "#28799E80" },
+      { icon: "php", name: "PHP", color: "#8D96C080" },
+      { icon: "mysql", name: "MySQL", color: "#1A6A9780" },
+      { icon: "uxui", name: "UX/UI", color: "#08081B80" },
       {
-        icon: <TbBrandAdobe />,
+        icon: "adobe",
         name: "Adobe CC",
         color:
           "conic-gradient(from 0deg at 50% 50%, rgba(255, 0, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(0, 255, 0, 0.5) 38%, rgba(0, 255, 255, 0.5) 63%, rgba(255, 0, 255, 0.5) 75%, rgba(255, 0, 0, 0.5) 100%)",
       },
-      { icon: <TbBrandFigma />, name: "Figma", color: "#08081B80" },
-      { icon: <TbBrandUnity />, name: "Unity", color: "#08081B80" },
-      { icon: <TbBrandCSharp />, name: "C#", color: "#6C287D80" },
-      { icon: <TbBrandGit />, name: "Git", color: "#F1553A80" },
-      { icon: <TbBrandBlender />, name: "Blender", color: "#EB7A0880" },
+      { icon: "figma", name: "Figma", color: "#08081B80" },
+      { icon: "unity", name: "Unity", color: "#08081B80" },
+      { icon: "csharp", name: "C#", color: "#6C287D80" },
+      { icon: "git", name: "Git", color: "#F1553A80" },
+      { icon: "blender", name: "Blender", color: "#EB7A0880" },
     ],
   },
 ];
@@ -322,15 +295,15 @@ const projects = [
     description:
       "Aplicación móvil que permite a los usuarios buscar e invertir en propiedades inmobiliarias, obteniendo beneficios al reunir los fondos necesarios.",
     tags: [
-      { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
-      { icon: <TbBrandExpo />, name: "Expo", color: "#08081B80" },
-      { icon: <TbBrandNodejs />, name: "Node.js", color: "#86CF2F80" },
-      { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
-      { icon: <TbBrandNpm />, name: "npm", color: "#CD3E3D80" },
-      { icon: <TbBrandMysql />, name: "MySQL", color: "#1A6A9780" },
-      { icon: <TbBrandGit />, name: "Git", color: "#F1553A80" },
-      { icon: <TbUxCircle />, name: "UX/UI", color: "#08081B80" },
-      { icon: <TbBrandFigma />, name: "Figma", color: "#08081B80" },
+      { icon: "react", name: "React", color: "#58C3DF80" },
+      { icon: "expo", name: "Expo", color: "#08081B80" },
+      { icon: "node", name: "Node.js", color: "#86CF2F80" },
+      { icon: "js", name: "JavaScript", color: "#F7E02580" },
+      { icon: "npm", name: "npm", color: "#CD3E3D80" },
+      { icon: "mysql", name: "MySQL", color: "#1A6A9780" },
+      { icon: "git", name: "Git", color: "#F1553A80" },
+      { icon: "uxui", name: "UX/UI", color: "#08081B80" },
+      { icon: "figma", name: "Figma", color: "#08081B80" },
     ],
     image: msiMock,
     source_code_link:
@@ -342,9 +315,9 @@ const projects = [
     description:
       "Página de inicio para MSInvs, una empresa de crowdlending, que permite a los clientes saber cómo funcionan la aplicación y el negocio.",
     tags: [
-      { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
-      { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
-      { icon: <TbBrandBem />, name: "BEM", color: "#08081B80" },
+      { icon: "react", name: "React", color: "#58C3DF80" },
+      { icon: "js", name: "JavaScript", color: "#F7E02580" },
+      { icon: "bem", name: "BEM", color: "#08081B80" },
     ],
     image: msiWeb,
     source_code_link: "https://github.com/Morenoo1105/msinvs_concept",
@@ -355,9 +328,9 @@ const projects = [
     description:
       "Aplicación web que permite a los usuarios comprobar el menú del día sin la necesidad de llamar, así como conocer un poco más de la historia del restaurante.",
     tags: [
-      { icon: <TbBrandReact />, name: "React", color: "#58C3DF80" },
-      { icon: <RiJavascriptLine />, name: "JavaScript", color: "#F7E02580" },
-      { icon: <TbBrandBem />, name: "BEM", color: "#08081B80" },
+      { icon: "react", name: "React", color: "#58C3DF80" },
+      { icon: "js", name: "JavaScript", color: "#F7E02580" },
+      { icon: "bem", name: "BEM", color: "#08081B80" },
     ],
     image: comidasMock,
     source_code_link:

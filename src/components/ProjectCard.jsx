@@ -9,6 +9,7 @@ import {
 } from "react-icons/tb";
 import { useState } from "react";
 import Tooltip from "./Tooltip";
+import StackIcon from "./iconComponents/stackIcon";
 
 const ProjectCard = ({
   index,
@@ -117,7 +118,7 @@ const ProjectCard = ({
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
-                  {tag.icon}
+                  <StackIcon icon={tag.icon} />
                 </div>
               </div>
             );

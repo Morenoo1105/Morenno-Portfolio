@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn, inView, inViewInitial } from "../utils/motion";
 import { styles } from "../style";
 import { Tilt } from "react-tilt";
+import StackIcon from "./iconComponents/stackIcon";
 
 const Tech = () => {
   const [selectedTab, setSelectedTab] = useState(stack[0]);
@@ -87,7 +88,10 @@ const Tech = () => {
                       }}
                     >
                       <div className="w-7 h-7 md:w-20 md:h-20 xl:w-24 xl:h-28 zTransform flex-1 flex justify-center items-center">
-                        {logo.icon}
+                        <StackIcon
+                          icon={logo.icon}
+                          className={"w-full h-full"}
+                        />
                       </div>
                       <div className="zTransform flex flex-[1.5] md:flex-1 p-0 md:p-3 justify-center items-center">
                         <h3 className="text-center text-xs md:text-lg">

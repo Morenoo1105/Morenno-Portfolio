@@ -10,6 +10,8 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { inView, inViewInitial } from "../utils/motion";
 
+import StackIcon from "./iconComponents/stackIcon";
+
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
     iconOnClick={() => {
@@ -66,7 +68,9 @@ const ExperienceCard = ({ experience }) => (
           className={`flex items-center px-2 py-0 gap-2 rounded-[4px] text-primaryText`}
           style={{ background: skill.color }}
         >
-          <div>{skill.icon}</div>
+          <div>
+            <StackIcon icon={skill.icon} />
+          </div>
           <div>{skill.name}</div>
         </div>
       ))}
