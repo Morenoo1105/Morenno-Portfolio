@@ -1,9 +1,29 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { navLinks } from "../constants";
-import { TbLanguage, TbMoonFilled } from "react-icons/tb";
+import { TbLanguage, TbMoonFilled, TbSunFilled } from "react-icons/tb";
 import StackIcon from "./iconComponents/stackIcon";
 import { useActiveSectionContext } from "../context/active-section-context";
+import { useTheme } from "../context/theme-context";
+
+const DarkToggle = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button
+      className="flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary transition-none"
+      onClick={() => {
+        toggleTheme();
+      }}
+    >
+      {theme == "light" ? (
+        <TbSunFilled className="transition-none" />
+      ) : (
+        <TbMoonFilled className="transition-none" />
+      )}
+    </button>
+  );
+};
 
 const Header = () => {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -12,7 +32,7 @@ const Header = () => {
   return (
     <header id="home" className="z-[999] relative">
       <motion.div
-        className="fixed top-0 left-1/2 h-[5rem] w-full rounded-none border border-tertiary sm:border-secondary border-opacity-40 bg-tertiary bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[42rem] sm:rounded-full"
+        className="fixed top-0 left-1/2 h-[5rem] w-full rounded-none border border-secondary dark:border-tertiary/40 dark:sm:border-secondary/40 bg-secondary/80 dark:bg-tertiary/80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[42rem] sm:rounded-full"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       />
@@ -29,8 +49,8 @@ const Header = () => {
               <a
                 className={`flex w-full items-center justify-center px-3 py-3 ${
                   link.id == activeSection
-                    ? "text-tertiary hover:text-primaryText"
-                    : "text-primaryText hover:text-secondary"
+                    ? "text-secondary dark:text-tertiary hover:text-primaryText"
+                    : "text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary"
                 }   transition-colors`}
                 href={`#${link.id}`}
                 onClick={() => {
@@ -47,7 +67,7 @@ const Header = () => {
 
               {link.id == activeSection && (
                 <motion.span
-                  className="bg-secondary rounded-full absolute inset-0 -z-10"
+                  className="bg-tertiary/50 dark:bg-secondary rounded-full absolute inset-0 -z-10"
                   layoutId="activeSection"
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
@@ -55,7 +75,7 @@ const Header = () => {
             </motion.li>
           ))}
           <motion.li
-            className="w-[0.1rem] h-2/3 bg-secondary bg-opacity-50 rounded-full"
+            className="w-[0.1rem] h-2/3 bg bg-tertiary/25 dark:bg-secondary bg-opacity-50 rounded-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
@@ -66,17 +86,12 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
           >
             <a
-              className="flex w-full items-center justify-center mx-3 my-3 hover:text-secondary transition"
-              href=""
+              className="flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary transition-none"
+              href="https://morenno.net/"
             >
               <TbLanguage />
             </a>
-            <button
-              className="flex w-full items-center justify-center mx-3 my-3 hover:text-secondary transition"
-              onClick={() => {}}
-            >
-              <TbMoonFilled />
-            </button>
+            <DarkToggle />
           </motion.li>
         </ul>
       </nav>

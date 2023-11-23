@@ -9,30 +9,31 @@ import {
   Header,
   Intro,
 } from "./components";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ActiveSectionContextProvider from "./context/active-section-context";
+import ThemeContextProvider from "./context/theme-context";
 
 const App = () => {
-  const [theme, setTheme] = useState("light");
-
   useEffect(() => {
     document.title = "Morenno";
   }, []);
 
   return (
     <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <ActiveSectionContextProvider>
-          <Header />
-          <Intro />
-          <About />
-          <Experience />
-          <Tech />
-          <Works />
-          <Contact />
-          <Footer />
-        </ActiveSectionContextProvider>
-      </div>
+      <ThemeContextProvider>
+        <div className="relative z-0 bg-lightBg dark:bg-primary">
+          <ActiveSectionContextProvider>
+            <Header />
+            <Intro />
+            <About />
+            <Experience />
+            <Tech />
+            <Works />
+            <Contact />
+            <Footer />
+          </ActiveSectionContextProvider>
+        </div>
+      </ThemeContextProvider>
     </BrowserRouter>
   );
 };

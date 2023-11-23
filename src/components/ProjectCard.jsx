@@ -7,6 +7,7 @@ import { IoLogoAppleAppstore } from "react-icons/io5";
 import { useState } from "react";
 import Tooltip from "./Tooltip";
 import StackIcon from "./iconComponents/stackIcon";
+import { useTheme } from "../context/theme-context";
 
 const ProjectCard = ({
   index,
@@ -20,12 +21,14 @@ const ProjectCard = ({
 }) => {
   const skillCount = tags.length;
 
+  const { theme } = useTheme();
+
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.1, 0.75)}
       className="group md:odd:self-end"
     >
-      <div className="bg-tertiary shadow-underShadow max-w-[54rem] rounded-2xl overflow-hidden md:pr-8 relative md:h-[20rem] transition md:group-even:pl-8 ">
+      <div className="bg-secondary dark:bg-tertiary shadow-underShadowHide dark:shadow-underShadow max-w-[54rem] rounded-2xl overflow-hidden md:pr-8 relative md:h-[20rem] transition md:group-even:pl-8 ">
         <div className="w-full block md:hidden h-[230px] p-3 overflow-hidden">
           <img
             src={image}
@@ -36,10 +39,10 @@ const ProjectCard = ({
         </div>
         <div className="pt-4 pb-7 px-5 md:pl-10 md:pr-2 md:pt-10 md:max-w-[50%] flex flex-col h-full md:group-even:ml-[16rem]  md:group-odd:mr-[20rem] md:group-even:float-right">
           <div className="h-full">
-            <h3 className="text-2xl font-semibold text-secondary font-comfortaa md:group-even:text-right">
+            <h3 className="text-2xl font-semibold text-tertiary dark:text-secondary font-comfortaa md:group-even:text-right">
               {name}
             </h3>
-            <p className="md:textBalance font-poiret mt-2 leading-relaxed text-primaryText md:group-even:text-right">
+            <p className="md:textBalance font-comfortaa font-semibold dark:font-normal text-sm mt-2 leading-relaxed text-tertiary/75 dark:text-primaryText md:group-even:text-right">
               {description}
             </p>
           </div>
@@ -52,7 +55,7 @@ const ProjectCard = ({
                   href={source_code_link}
                   target="_blank"
                   rel="external noreferrer noopener"
-                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  className="bg-primaryText dark:bg-secondary text-[14px] text-tertiary dark:text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -64,7 +67,7 @@ const ProjectCard = ({
                   href={live_link}
                   target="_blank"
                   rel="external noreferrer noopener"
-                  className="bg-secondary text-[14px] text-primary font-medium px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  className="bg-primaryText dark:bg-secondary text-[14px] text-tertiary dark:text-primary font-medium px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -75,11 +78,11 @@ const ProjectCard = ({
             ) : (
               <div className="w-full flex flex-row justify-evenly md:justify-start md:group-even:justify-end gap-3">
                 <motion.a
-                  aria-label="Descargar la aplicación MSInvs en Play Store"
+                  aria-label="Visitar el repositorio de GitHub"
                   href={source_code_link}
                   target="_blank"
                   rel="external noreferrer noopener"
-                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  className="bg-primaryText dark:bg-secondary text-[14px] text-tertiary dark:text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -87,11 +90,11 @@ const ProjectCard = ({
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
-                  aria-label="Descargar la aplicación MSInvs en Play Store"
+                  aria-label="Visitar la página web demostrativa"
                   href={live_link}
                   target="_blank"
                   rel="external noreferrer noopener"
-                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  className="bg-primaryText dark:bg-secondary text-[14px] text-tertiary dark:text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -119,8 +122,13 @@ const ProjectCard = ({
                   <Tooltip visible={hovered} message={tag.name} />
                   <div
                     key={tag.name}
-                    className={`text-[20px] text-primaryText p-1 rounded-md cursor-help z-[3]`}
-                    style={{ backgroundColor: tag.color }}
+                    className={`text-[20px] text-tertiary dark:text-primaryText p-1 rounded-md cursor-help z-[3]`}
+                    style={{
+                      background:
+                        theme == "light" && tag.color == "#08081B80"
+                          ? "#afafaf80"
+                          : tag.color,
+                    }}
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                   >
@@ -141,7 +149,8 @@ const ProjectCard = ({
         group-hover:-translate-x-3
         group-hover:translate-y-3
         group-hover:-rotate-2
-        group-hover:drop-shadow-[0px_0px_35px_#FFC86BBF]
+        group-hover:drop-shadow-[0px_0px_35px_#3a302371]
+        dark:group-hover:drop-shadow-[0px_0px_35px_#FFC86BBF]
 
         
         group-even:group-hover:translate-x-3

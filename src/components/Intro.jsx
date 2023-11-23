@@ -22,13 +22,21 @@ const Intro = () => {
       ref={ref}
       className="font-poiret mx-auto pt-20 sm:pt-24 mb-28 max-w-[50rem] text-center sm:mb-0"
     >
-      <div className="flex items-center justify-center h-56 md:h-60">
+      <div
+        className="flex items-center justify-center h-56 md:h-60 
+      bg-[radial-gradient(circle_at_50%_50%,_rgba(255,_200,_107,_1)_15%,_rgba(255,_200,_107,_0)_27%)]
+      dark:bg-[radial-gradient(circle_at_50%_50%,_rgba(255,_200,_107,_1)_0%,_rgba(255,_200,_107,_0)_27%)]
+      bg-center
+      bg-no-repeat
+      [background-size:600px_600px]
+      "
+      >
         <motion.div className="w-56 h-56">
           <HeadsCanvas />
         </motion.div>
       </div>
       <motion.p
-        className="mb-10 mt-4 px-4 text-xl !leading-[1.5] sm:text-4xl textBalance"
+        className="mb-10 mt-4 px-4 text-xl !leading-[1.5] sm:text-4xl textBalance font-semibold text-tertiary dark:text-primaryText"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -41,7 +49,7 @@ const Intro = () => {
       </motion.p>
 
       <motion.p
-        className="mb-10 mt-4 px-4 text-lg !leading-[1.5] sm:text-3xl textBalance"
+        className="mb-10 mt-4 px-4 text-lg !leading-[1.5] sm:text-3xl textBalance font-semibold text-tertiary dark:text-primaryText"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -70,7 +78,7 @@ const Intro = () => {
           <motion.a
             aria-label="Descargar Currículum Vitae"
             href="#"
-            className="bg-tertiary text-secondary px-7 py-3 flex items-center gap-2 rounded-full outline-none"
+            className="bg-tertiary/10 dark:bg-tertiary text-tertiary dark:text-secondary px-7 py-3 flex items-center gap-2 rounded-full outline-none"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -83,7 +91,7 @@ const Intro = () => {
               href="https://linkedin.com/in/morenno/"
               target="_blank"
               rel="external noreferrer noopener"
-              className="bg-tertiary text-secondary p-4 flex items-center rounded-full outline-none"
+              className="bg-tertiary/10 dark:bg-tertiary text-tertiary dark:text-secondary p-4 flex items-center rounded-full outline-none"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -94,7 +102,7 @@ const Intro = () => {
               href="https://github.com/Morenoo1105"
               target="_blank"
               rel="external noreferrer noopener"
-              className="bg-tertiary text-secondary p-4 flex items-center rounded-full outline-none"
+              className="bg-tertiary/10 dark:bg-tertiary text-tertiary dark:text-secondary p-4 flex items-center rounded-full outline-none"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -105,7 +113,7 @@ const Intro = () => {
       </AnimatePresence>
 
       <motion.div
-        className="mx-auto bg-tertiary my-24 h-28 w-1 rounded-full hidden sm:block"
+        className="mx-auto bg-secondary/50 dark:bg-tertiary my-24 h-28 w-1 rounded-full hidden sm:block"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}

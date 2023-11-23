@@ -18,7 +18,7 @@ const Works = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-3 text-primaryText text-[17px] max-w-xl leading-[30px] font-poiret"
+          className="textBalance mt-3 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[17px] max-w-xl leading-[30px] font-poiret"
         >
           Aquí recojo algunos de los proyectos que he hecho. Cada uno me ha
           enseñado algo nuevo que implementar en los siguientes. Además, tienen

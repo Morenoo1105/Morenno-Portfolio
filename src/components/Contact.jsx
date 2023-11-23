@@ -11,11 +11,11 @@ import { TbMailForward } from "react-icons/tb";
 
 const LoadingCircle = () => (
   <div className="relative flex flex-1 items-center justify-center w-full h-full">
-    <span className="block w-6 h-6 border-4 border-secondary border-opacity-40 rounded-full absolute" />
+    <span className="block w-6 h-6 border-4 border-tertiary/40 dark:border-secondary/40 rounded-full absolute" />
     <motion.span
       animate={{ rotate: 360 }}
       transition={{ repeat: Infinity, duration: 1, ease: "circInOut" }}
-      className="block w-6 h-6 border-4 border-b-secondary border-transparent border-opacity-100 rounded-full absolute t-0 l-0"
+      className="block w-6 h-6 border-4 border-b-tertiary dark:border-b-secondary border-transparent rounded-full absolute t-0 l-0"
     />
   </div>
 );
@@ -125,18 +125,23 @@ const Contact = () => {
     >
       <motion.div
         variants={fadeIn("up", "tween", 0.2, 0.4)}
-        className="bg-tertiary relative w-full flex lg:flex-row flex-col gap-5 p-8 rounded-2xl shadow-underShadow"
+        className="bg-secondary dark:bg-tertiary relative w-full flex lg:flex-row flex-col gap-5 p-8 rounded-2xl shadow-underShadow"
       >
         <div className="flex-1">
-          <h3 className={`${styles.sectionHeadText}`}>Contacto.</h3>
-          <p className="textBalance mt-3 text-primaryText text-[17px] max-w-xl leading-[30px] font-poiret">
+          <h3
+            className={`${styles.sectionHeadText} !text-primaryText dark:!text-secondary`}
+          >
+            Contacto.
+          </h3>
+          <p className="textBalance mt-3 text-tertiary/60 dark:text-primaryText font-semibold dark:font-thin text-[17px] max-w-xl leading-[30px] font-comfortaa">
             Rellena este formulario o habla conmigo directamente en{" "}
             <a
-              className="text-secondary hover:text-secondary/75"
+              className="inline-block text-primaryText dark:text-secondary hover:text-tertiary/50 dark:hover:text-secondary/75 transition-none"
               aria-label="Enviar email a info@morenno.net"
               href="mailto:info@morenno.net"
             >
-              <TbMailForward className="inline" /> info@morenno.net
+              <TbMailForward className="inline transition-none" />{" "}
+              info@morenno.net
             </a>
           </p>
           <form
@@ -179,7 +184,7 @@ const Contact = () => {
                 animate={errorText ? "open" : "closed"}
                 className={`w-full overflow-hidden ${
                   isValid
-                    ? "bg-secondary text-primary font-bold"
+                    ? "bg-tertiary dark:bg-secondary text-primaryText dark:text-primary font-bold"
                     : "bg-red-500 font-medium"
                 } rounded-lg`}
               >
@@ -192,7 +197,7 @@ const Contact = () => {
                   whileTap={{ scale: loading ? 1 : 0.9 }}
                   type="submit"
                   disabled={loading ? true : false}
-                  className={`bg-primary py-4 outline-none min-w-[110px] min-h-[56px] text-primaryText font-bold rounded-xl`}
+                  className={`bg-primaryText dark:bg-primary py-4 outline-none min-w-[110px] min-h-[56px] text-tertiary dark:text-primaryText font-bold rounded-xl`}
                 >
                   {loading ? <LoadingCircle /> : "Enviar"}
                 </motion.button>
@@ -200,7 +205,7 @@ const Contact = () => {
             </div>
           </form>
         </div>
-        <div className="flex-1 absolute flex justify-center items-center h-28 sm:h-36 lg:h-[725px] lg:right-auto right-0 lg:top-auto top-2 lg:mr-0 mr-10 lg:static">
+        <div className="flex-1 absolute flex justify-center items-center h-20 sm:h-36 lg:h-[725px] lg:right-auto right-0 lg:top-auto top-2 lg:mr-0 mr-10 lg:static">
           <AnimatePresence>
             <motion.img
               whileHover={{
@@ -213,7 +218,7 @@ const Contact = () => {
               }}
               src={contact}
               alt="Juguete modelado en 3D volando colgado de un avión de papel."
-              className="h-[80%] w-auto max-w-[80%] object-contain"
+              className="h-[80%] w-auto max-w-[80%] object-contain filter drop-shadow-[5px_5px_5px_#222]"
               loading="lazy"
             />
           </AnimatePresence>

@@ -28,7 +28,7 @@ const Tooltip = ({ visible, message }) => (
           exit="exit"
         >
           <div className="absolute bottom-[-3px] transform rotate-45 w-2 h-2 bg-primary" />
-          <p className="text-primaryText">{message}</p>
+          <p className="text-primaryText font-sans">{message}</p>
         </motion.div>
       )}
     </AnimatePresence>

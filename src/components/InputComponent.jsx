@@ -45,8 +45,8 @@ const InputComponent = ({
         animate={focused ? "moved" : "place"}
         className={`absolute flex flex-row items-center gap-3 py-4 px-6 transition-[font-size] ${
           (focused && value) || focused
-            ? "text-[22px] text-secondary font-bold cursor-default"
-            : "text-primaryText font-medium cursor-text"
+            ? "text-[22px] text-tertiary dark:text-secondary font-bold cursor-default"
+            : "text-tertiary dark:text-primaryText font-bold dark:font-medium cursor-text"
         }`}
       >
         <motion.span
@@ -58,14 +58,14 @@ const InputComponent = ({
             },
           }}
           animate={value ? "fill" : "empty"}
-          className="h-full"
+          className="h-full transition-none"
         >
           {name === "name" && !value ? (
-            <RiUser3Line />
+            <RiUser3Line className="transition-none" />
           ) : name === "name" && value ? (
-            <RiUser3Fill />
+            <RiUser3Fill className="transition-none" />
           ) : name === "email" && !value ? (
-            <TbMail />
+            <TbMail className="transition-none" />
           ) : name === "email" && value ? (
             <TbMailFilled
               color={
@@ -73,11 +73,12 @@ const InputComponent = ({
                   ? "#EF4444"
                   : "inherit"
               }
+              className="transition-none"
             />
           ) : name === "message" && !value ? (
-            <RiMessage3Line />
+            <RiMessage3Line className="transition-none" />
           ) : (
-            <RiMessage3Fill />
+            <RiMessage3Fill className="transition-none" />
           )}
         </motion.span>
         {titleT}
@@ -91,7 +92,7 @@ const InputComponent = ({
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          className={`bg-primary py-4 px-6 text-primaryText rounded-lg outline-none border-none font-medium shadow-underShadowHide
+          className={`bg-primaryText dark:bg-primary font-bold dark:font-normal py-4 px-6 text-tertiary dark:text-primaryText rounded-lg outline-none border-none shadow-underShadowHide
           focus:shadow-underShadow
           ${
             name === "email" &&
@@ -110,7 +111,7 @@ const InputComponent = ({
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          className="bg-primary py-4 px-6  text-primaryText rounded-lg outline-none border-none font-medium shadow-underShadowHide focus:shadow-underShadow transition-all"
+          className="bg-primaryText dark:bg-primary font-bold dark:font-normal py-4 px-6 text-tertiary dark:text-primaryText rounded-lg outline-none border-none shadow-underShadowHide focus:shadow-underShadow transition-all"
         />
       )}
     </label>

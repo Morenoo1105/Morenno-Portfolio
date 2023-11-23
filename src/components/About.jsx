@@ -7,7 +7,7 @@ import UserCard from "./UserCard";
 import { useSectionInView } from "../hooks/useSectionInView";
 
 const Y = ({ children }) => (
-  <span className="text-secondary font-comfortaa font-extralight">
+  <span className="text-secondary font-comfortaa font-semibold dark:font-extralight">
     {children}
   </span>
 );
@@ -29,7 +29,7 @@ const About = () => {
 
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
+          className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           Graduado en <Y>Diseño y Tecnologías Creativas</Y>
           <G>,</G> con la posibilidad de aportar a los proyectos las dos caras
@@ -38,7 +38,7 @@ const About = () => {
 
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
+          className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           Con ganas de empezar a crear <Y>relaciones largas</Y> y{" "}
           <Y>valiosas</Y> mientras sigo aprendiendo para conseguir el{" "}
@@ -48,7 +48,7 @@ const About = () => {
 
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
+          className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           <Y>Hace 5 años</Y> descubrí el{" "}
           <sup className="text-[10px]">(a veces)</sup> divertido mundo del
@@ -57,7 +57,7 @@ const About = () => {
         </motion.p>
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
+          className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           <Y>Hace 2 años</Y> descubrí <Y>React</Y>
           <G>, ¡</G>y con el tiempo se convirtió en mi framework favorito con el

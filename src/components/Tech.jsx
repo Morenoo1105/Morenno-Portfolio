@@ -7,11 +7,14 @@ import { styles } from "../style";
 import { Tilt } from "react-tilt";
 import StackIcon from "./iconComponents/stackIcon";
 import { useSectionInView } from "../hooks/useSectionInView";
+import { useTheme } from "../context/theme-context";
 
 const Tech = () => {
   const [selectedTab, setSelectedTab] = useState(stack[0]);
 
   const { ref } = useSectionInView("experience", 0.75);
+
+  const { theme } = useTheme();
 
   return (
     <>
@@ -19,10 +22,10 @@ const Tech = () => {
         <h2 className={`${styles.sectionHeadText}`}>Conocimientos.</h2>
       </motion.div>
 
-      <div className="w-full flex font-poiret">
+      <div className="w-full flex">
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-primaryText text-[17px] max-w-3xl leading-[30px]"
+          className="textBalance mt-3 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[17px] max-w-3xl leading-[30px] font-poiret"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -35,7 +38,7 @@ const Tech = () => {
               {stack.map((item) => (
                 <div key={item.label}>
                   {item === selectedTab ? (
-                    <p className="textBalance w-full max-w-xl">{item.text}</p>
+                    <p className="w-full max-w-xl">{item.text}</p>
                   ) : null}
                 </div>
               ))}
@@ -46,21 +49,23 @@ const Tech = () => {
 
       <div
         ref={ref}
-        className="w-full h-fit rounded-2xl overflow-hidden shadow-underShadow flex flex-col bg-tertiary mt-14"
+        className="w-full h-fit rounded-2xl overflow-hidden shadow-underShadow flex flex-col bg-secondary dark:bg-tertiary mt-14"
       >
         <ul className="flex w-full m-0 p-1 font-medium">
           {stack.map((item) => (
             <li
               className={`${
-                item === selectedTab ? "bg-tertiary" : "bg-primary-50"
-              } hover:bg-secondary hover:text-tertiary hover:font-bold rounded-2xl rounded-b-none w-full px-2 py-3 relative cursor-pointer flex justify-center items-center flex-1 capitalize text-secondary text-[14px] md:text-[20px] transition-colors font-comfortaa font-thin text-center`}
+                item === selectedTab
+                  ? "bg-secondary dark:bg-tertiary"
+                  : "bg-tertiary/20 dark:bg-primary/50"
+              } hover:bg-tertiary/75 dark:hover:bg-secondary hover:text-secondary dark:hover:text-tertiary hover:font-bold rounded-2xl rounded-b-none w-full px-2 py-3 relative cursor-pointer flex justify-center items-center flex-1 capitalize text-tertiary dark:text-secondary text-[14px] md:text-[20px] font-comfortaa font-bold dark:font-thin text-center`}
               key={item.label}
               onClick={() => setSelectedTab(item)}
             >
               {item.label}
               {item === selectedTab ? (
                 <motion.div
-                  className="absolute -bottom-[1px] left-0 right-0 h-[1px] bg-secondary w-full"
+                  className="absolute -bottom-[1px] left-0 right-0 h-[1px] bg-tertiary dark:bg-secondary w-full"
                   layoutId="underline"
                 />
               ) : null}
@@ -83,9 +88,14 @@ const Tech = () => {
                       key={logo.name}
                       className={`${
                         logo.name == "Vite" && "gShadow"
-                      } flip-card-inner w-36 h-20 flex flex-row rounded-xl justify-start items-center p-3 gap-1`}
+                      } flip-card-inner w-36 h-20 flex flex-row rounded-xl justify-start items-center p-3 gap-1 text-white`}
                       style={{
-                        background: logo.color,
+                        background:
+                          theme == "dark"
+                            ? logo.color
+                            : logo.name != "Vite"
+                            ? logo.color.slice(0, 7)
+                            : "linear-gradient(135deg, rgba(71, 202, 255, 1) 0%, rgba(190, 52, 254, 1) 100%)",
                         boxShadow: "0 0 15px " + logo.color.slice(0, 7),
                       }}
                       options={{

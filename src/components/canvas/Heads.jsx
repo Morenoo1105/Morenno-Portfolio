@@ -41,7 +41,7 @@ const Heads = () => {
 
   useFrame(() => {
     const x = useMapRange(mousePos.x, 0, windowSize.width, 2, -2);
-    const y = useMapRange(mousePos.y, 0, windowSize.height, -0.7, 2);
+    const y = useMapRange(mousePos.y, 0, windowSize.height, -0.7, 3);
 
     entered ? ref.current.lookAt(x, y, -2) : ref.current.lookAt(0.4, 0.2, -2);
   });
@@ -89,24 +89,18 @@ const HeadsCanvas = () => {
 
         <rectAreaLight
           position={[-22, -0.4, 0]}
-          intensity={3}
+          intensity={1}
           width={20}
           height={20}
         />
 
         <rectAreaLight
           position={[0, -0.4, 0]}
-          intensity={2}
+          intensity={1.5}
           width={20}
           height={20}
         />
 
-        <rectAreaLight
-          position={[-2, -4, -40]}
-          intensity={2}
-          width={20}
-          height={20}
-        />
       </PerspectiveCamera>
 
       <Suspense fallback={<CanvasLoader />}>

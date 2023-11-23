@@ -5,14 +5,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        lightBg: "#FCF9F2",
         primary: "#161719",
         primaryText: "#f9f1df",
-        "primary-50": "#161719BF",
         secondary: "#FFC86B",
         tertiary: "#3a3023",
       },
       fontFamily: {
-        garamond: ["EB_Garamond"],
+        garamond: ["EB Garamond"],
         poiret: ["Poiret One"],
         comfortaa: ["Comfortaa"],
       },
@@ -29,4 +29,5 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: "class",
 };
