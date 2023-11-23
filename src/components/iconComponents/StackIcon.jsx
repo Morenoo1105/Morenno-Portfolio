@@ -32,6 +32,7 @@ import {
 import { FaFileArrowDown } from "react-icons/fa6";
 import { BiLogoBlender } from "react-icons/bi";
 import { RiJavascriptLine } from "react-icons/ri";
+import { HiHome } from "react-icons/hi";
 
 const StackIcon = ({ icon, className }) => (
   <>
@@ -64,6 +65,8 @@ const StackIcon = ({ icon, className }) => (
 
     {icon == "mail" && <TbMailFilled className={className} />}
     {icon == "cv" && <FaFileArrowDown className={className} />}
+
+    {icon == "home" && <HiHome className={className} />}
   </>
 );
 

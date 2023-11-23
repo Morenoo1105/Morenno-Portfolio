@@ -1,22 +1,29 @@
 import { motion } from "framer-motion";
 import { styles } from "../style";
-import { fadeIn, inView, inViewInitial } from "../utils/motion";
+import { fadeIn, inViewAnim, inViewInitial } from "../utils/motion";
 
 import { SectionWrapper } from "../hoc";
 import UserCard from "./UserCard";
+import { useSectionInView } from "../hooks/useSectionInView";
 
 const Y = ({ children }) => (
-  <span className="text-secondary font-bold">{children}</span>
+  <span className="text-secondary font-comfortaa font-extralight">
+    {children}
+  </span>
 );
 
 const G = ({ children }) => <span className="font-garamond">{children}</span>;
 
 const About = () => {
+  const { ref } = useSectionInView("about", 0.5);
+
   return (
-    <div className="w-full flex lg:flex-row flex-col justify-between lg:items-center mt-0 mb-0 lg:mt-44 lg:mb-32">
+    <div
+      ref={ref}
+      className="w-full flex lg:flex-row flex-col justify-between lg:items-center mt-0 mb-0 lg:mb-32 font-poiret"
+    >
       <div className="flex-1 flex flex-col gap-8">
-        <motion.div whileInView={inView} initial={inViewInitial}>
-          <p className={`${styles.sectionSubText}`}>Yo</p>
+        <motion.div whileInView={inViewAnim} initial={inViewInitial}>
           <h2 className={`${styles.sectionHeadText}`}>Sobre mí.</h2>
         </motion.div>
 
@@ -24,10 +31,9 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
-          <G>¡</G>Hola<G>!</G> Me llamo <Y>Pablo Moreno</Y>
-          <G>,</G> y soy <Y>Desarrollador Front-end</Y>
-          <G>,</G> <Y>Artista 3D</Y> y <Y>Editor de Vídeo</Y>
-          <G>.</G>
+          Graduado en <Y>Diseño y Tecnologías Creativas</Y>
+          <G>,</G> con la posibilidad de aportar a los proyectos las dos caras
+          de la moneda: <Y>diseño</Y> y <Y>desarrollo</Y>.
         </motion.p>
 
         <motion.p
@@ -53,8 +59,8 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="textBalance mt-4 text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
-          <Y>Hace 1 año</Y> descubrí <Y>React</Y>
-          <G>, ¡</G>y con el tiempo se convirtió en mi librería favorita con la
+          <Y>Hace 2 años</Y> descubrí <Y>React</Y>
+          <G>, ¡</G>y con el tiempo se convirtió en mi framework favorito con el
           que trabajar
           <G>!</G>
         </motion.p>

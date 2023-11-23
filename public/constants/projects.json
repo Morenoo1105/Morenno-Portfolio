@@ -1,6 +1,6 @@
 [
   {
-    "name": "Aplicación para MSInvs",
+    "name": "MSInvs App",
     "description": "Aplicación móvil que permite a los usuarios buscar e invertir en propiedades inmobiliarias, obteniendo beneficios al reunir los fondos necesarios.",
     "tags": [
       { "icon": "react", "name": "React", "color": "#58C3DF80" },
@@ -18,7 +18,7 @@
     "live_link": "https://apps.apple.com/gb/app/msinvs/id1565847618"
   },
   {
-    "name": "WebApp de fotos de gatos",
+    "name": "¡Gatos!",
     "description": "Aplicación web que se nutre de 3 APIs para devolver una imagen aleatoria de un gato con un texto superpuesto.",
     "tags": [
       { "icon": "react", "name": "React", "color": "#58C3DF80" },
@@ -32,7 +32,7 @@
     "live_link": "https://morenno.net/demoWebs/CatAPI/"
   },
   {
-    "name": "Web para Casa de Comidas",
+    "name": "Comidas de Pueblo",
     "description": "Aplicación web que permite comprobar el menú del día sin la necesidad de llamar, así como conocer un poco más de la historia del restaurante.",
     "tags": [
       { "icon": "react", "name": "React", "color": "#58C3DF80" },
@@ -44,7 +44,7 @@
     "live_link": "https://morenno.net/demoWebs/ComidasDePueblo/"
   },
   {
-    "name": "Web para MSInvs",
+    "name": "MSInvs Web",
     "description": "Página de inicio para MSInvs, una empresa de crowdlending, que permite a los clientes saber cómo funcionan la aplicación y el negocio.",
     "tags": [
       { "icon": "react", "name": "React", "color": "#58C3DF80" },

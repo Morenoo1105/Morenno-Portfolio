@@ -3,15 +3,18 @@ import {
   About,
   Contact,
   Experience,
-  Hero,
-  Navbar,
   Tech,
   Works,
   Footer,
+  Header,
+  Intro,
 } from "./components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ActiveSectionContextProvider from "./context/active-section-context";
 
 const App = () => {
+  const [theme, setTheme] = useState("light");
+
   useEffect(() => {
     document.title = "Morenno";
   }, []);
@@ -19,14 +22,16 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <Navbar />
-        <Hero />
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-        <Contact />
-        <Footer />
+        <ActiveSectionContextProvider>
+          <Header />
+          <Intro />
+          <About />
+          <Experience />
+          <Tech />
+          <Works />
+          <Contact />
+          <Footer />
+        </ActiveSectionContextProvider>
       </div>
     </BrowserRouter>
   );

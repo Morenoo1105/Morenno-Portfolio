@@ -1,4 +1,4 @@
-export const inView = () => {
+export const inViewAnim = () => {
   return {
     y: 0,
     opacity: 1,

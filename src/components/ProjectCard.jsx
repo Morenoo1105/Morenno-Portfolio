@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
-import { Tilt } from "react-tilt";
 import { fadeIn } from "../utils/motion";
-import {
-  TbAccessPoint,
-  TbBrandAppstore,
-  TbBrandGithub,
-  TbBrandGooglePlay,
-} from "react-icons/tb";
+import { TbAccessPoint, TbBrandGithubFilled } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { IoLogoAppleAppstore } from "react-icons/io5";
+
 import { useState } from "react";
 import Tooltip from "./Tooltip";
 import StackIcon from "./iconComponents/stackIcon";
@@ -24,107 +21,136 @@ const ProjectCard = ({
   const skillCount = tags.length;
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.1, 0.75)}>
-      <Tilt
-        options={{
-          max: 10,
-          scale: 1,
-          speed: 450,
-          reverse: true,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full shadow-underShadow"
-      >
-        <div className="relative w-full h-[230px]">
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+      className="group md:odd:self-end"
+    >
+      <div className="bg-tertiary shadow-underShadow max-w-[54rem] rounded-2xl overflow-hidden md:pr-8 relative md:h-[20rem] transition md:group-even:pl-8 ">
+        <div className="w-full block md:hidden h-[230px] p-3 overflow-hidden">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover rounded-2xl"
             loading="lazy"
+            className="w-full h-full object-cover rounded-xl"
           />
+        </div>
+        <div className="pt-4 pb-7 px-5 md:pl-10 md:pr-2 md:pt-10 md:max-w-[50%] flex flex-col h-full md:group-even:ml-[16rem]  md:group-odd:mr-[20rem] md:group-even:float-right">
+          <div className="h-full">
+            <h3 className="text-2xl font-semibold text-secondary font-comfortaa md:group-even:text-right">
+              {name}
+            </h3>
+            <p className="md:textBalance font-poiret mt-2 leading-relaxed text-primaryText md:group-even:text-right">
+              {description}
+            </p>
+          </div>
 
-          <div className="absolute inset-0 flex justify-end m-3">
+          <div className="w-full my-3 font-comfortaa">
             {first ? (
-              <div className="flex flex-row gap-2">
-                <div
-                  onClick={() => {
-                    window.open(
-                      source_code_link,
-                      "_blank",
-                      "noopener noreferrer"
-                    );
-                  }}
-                  className="play-store-gradient hover:scale-[1.20] transition-all w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              <div className="w-full flex flex-row justify-evenly md:justify-start gap-3">
+                <motion.a
+                  aria-label="Descargar la aplicación MSInvs en Play Store"
+                  href={source_code_link}
+                  target="_blank"
+                  rel="external noreferrer noopener"
+                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <TbBrandGooglePlay className="w-3/5 h-3/5 stroke-primaryText object-contain ml-1" />
-                </div>
-                <div
-                  onClick={() => {
-                    window.open(live_link, "_blank", "noopener noreferrer");
-                  }}
-                  className="blue-gradient hover:scale-[1.20] transition-all w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+                  <BsGooglePlay className="text-[18px]  h-full" />
+                  <span>Play Store</span>
+                </motion.a>
+                <motion.a
+                  aria-label="Descargar la aplicación MSInvs en App Store"
+                  href={live_link}
+                  target="_blank"
+                  rel="external noreferrer noopener"
+                  className="bg-secondary text-[14px] text-primary font-medium px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <TbBrandAppstore className="w-3/5 h-3/5 stroke-primaryText object-contain" />
-                </div>
+                  <IoLogoAppleAppstore className="text-[20px] h-full" />
+                  <span>App Store</span>
+                </motion.a>
               </div>
             ) : (
-              <div className="flex flex-row gap-2">
-                <div
-                  onClick={() => {
-                    window.open(
-                      source_code_link,
-                      "_blank",
-                      "noopener noreferrer"
-                    );
-                  }}
-                  className="black-gradient hover:scale-[1.20] transition-all w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              <div className="w-full flex flex-row justify-evenly md:justify-start md:group-even:justify-end gap-3">
+                <motion.a
+                  aria-label="Descargar la aplicación MSInvs en Play Store"
+                  href={source_code_link}
+                  target="_blank"
+                  rel="external noreferrer noopener"
+                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <TbBrandGithub className="w-3/5 h-3/5 stroke-primaryText object-contain" />
-                </div>
-                <div
-                  onClick={() => {
-                    window.open(live_link, "_blank", "noopener noreferrer");
-                  }}
-                  className="pink-gradient hover:scale-[1.20] transition-all w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+                  <TbBrandGithubFilled className="text-[20px]" />
+                  <span>GitHub</span>
+                </motion.a>
+                <motion.a
+                  aria-label="Descargar la aplicación MSInvs en Play Store"
+                  href={live_link}
+                  target="_blank"
+                  rel="external noreferrer noopener"
+                  className="bg-secondary text-[14px] text-primary font-black px-4 py-2 flex justify-start gap-2 rounded-full outline-none"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <TbAccessPoint className="w-3/5 h-3/5 stroke-primaryText object-contain" />
-                </div>
+                  <TbAccessPoint className="text-[20px]" />
+                  <span>Demo</span>
+                </motion.a>
               </div>
             )}
           </div>
-        </div>
 
-        <div className="mt-5">
-          <h3 className="text-secondary font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-primaryText text-[14px]">{description}</p>
-        </div>
-
-        <div
-          className={`w-full mt-4 flex flex-row flex-wrap gap-1 items-center ${
-            skillCount > 6 ? "justify-evenly" : "justify-end"
-          }`}
-        >
-          {tags.map((tag) => {
-            const [hovered, setHovered] = useState(false);
-            return (
-              <div
-                key={"tooltip " + tag.name}
-                className="flex flex-row justify-center items-center"
-              >
-                <Tooltip visible={hovered} message={tag.name} />
-                <div
-                  key={tag.name}
-                  className={`text-[20px] text-primaryText p-1 rounded-md cursor-help z-[3]`}
-                  style={{ backgroundColor: tag.color }}
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
+          <ul
+            className={`w-full self-end flex flex-row flex-wrap gap-1 items-center ${
+              skillCount > 6
+                ? "justify-evenly"
+                : "justify-end md:justify-start md:group-even:justify-end"
+            }`}
+          >
+            {tags.map((tag) => {
+              const [hovered, setHovered] = useState(false);
+              return (
+                <li
+                  key={"tooltip " + tag.name}
+                  className="flex flex-row justify-center items-center"
                 >
-                  <StackIcon icon={tag.icon} />
-                </div>
-              </div>
-            );
-          })}
+                  <Tooltip visible={hovered} message={tag.name} />
+                  <div
+                    key={tag.name}
+                    className={`text-[20px] text-primaryText p-1 rounded-md cursor-help z-[3]`}
+                    style={{ backgroundColor: tag.color }}
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                  >
+                    <StackIcon icon={tag.icon} />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      </Tilt>
+        <img
+          src={image}
+          alt={name}
+          loading="lazy"
+          className="absolute hidden md:block top-8 -right-36 md:-right-28 w-[28.25rem] h-full rounded-t-lg shadow-2xl transition  
+        
+        group-hover:scale-[1.04]
+        group-hover:-translate-x-3
+        group-hover:translate-y-3
+        group-hover:-rotate-2
+        group-hover:drop-shadow-[0px_0px_35px_#FFC86BBF]
+
+        
+        group-even:group-hover:translate-x-3
+        group-even:group-hover:translate-y-3
+        group-even:group-hover:rotate-2
+
+        group-even:right-[initial] group-even:-left-36 md:group-even:-left-28 "
+        />
+      </div>
     </motion.div>
   );
 };

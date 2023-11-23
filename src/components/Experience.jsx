@@ -8,11 +8,12 @@ import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../style";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { inView, inViewInitial } from "../utils/motion";
+import { inViewAnim, inViewInitial } from "../utils/motion";
 
 import { cv } from "../assets";
 
 import StackIcon from "./iconComponents/stackIcon";
+import { useSectionInView } from "../hooks/useSectionInView";
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
@@ -42,46 +43,21 @@ const ExperienceCard = ({ experience }) => (
     }
   >
     <div>
-      <h3 className="text-primaryText font-g text-[24px] font-bold">
+      <h3 className="text-primaryText font-comfortaa font-extralight text-[20px]">
         {experience.title}
       </h3>
-      <p
-        className="text-secondary text-[16px] font-semibold"
-        style={{ margin: 0 }}
-      >
+      <p className="text-secondary text-[16px]" style={{ margin: 0 }}>
         {experience.company_name}
       </p>
     </div>
 
-    <ul className="mt-5 list-disc ml-5 space-y-2">
+    <ul className="mt-5 list-disc ml-5 space-y-2 marker:text-secondary">
       {experience.points.map((point, index) => (
         <li
           key={`experience-point-${index}`}
           className="text-primaryText text-[14px] pl-1 tracking-wider"
         >
-          {point == "mail" ? (
-            <>
-              Contáctame en{" "}
-              <a
-                className="text-secondary hover:text-primaryText font-bold"
-                href="mailto:info@morenno.net"
-              >
-                info@morenno.net
-              </a>
-            </>
-          ) : point == "cv" ? (
-            <>
-              O descarga mi CV{" "}
-              <a
-                className="text-secondary hover:text-primaryText font-bold"
-                href="mailto:info@morenno.net"
-              >
-                aquí
-              </a>
-            </>
-          ) : (
-            point
-          )}
+          {point}
         </li>
       ))}
     </ul>
@@ -89,30 +65,32 @@ const ExperienceCard = ({ experience }) => (
       {experience.skills.map((skill, index) => (
         <div key={`experience-skill-${index}`}>
           {skill.icon == "mail" ? (
-            <a
+            <motion.a
+              aria-label={`Enviar email a ${skill.name}`}
               href={`mailto:${skill.name}`}
-              className={`flex items-center px-4 py-2 gap-2 rounded-[4px] text-primary font-bold bg-[#FFC86B] hover:bg-[#FFC86B80] transition-colors`}
+              className="group bg-secondary text-primary font-black px-4 py-2 flex items-center gap-2 rounded-full outline-none"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <div>
-                <StackIcon icon={skill.icon} />
-              </div>
-              <div>{skill.name}</div>
-            </a>
+              <StackIcon icon={skill.icon} />
+              <span>{skill.name}</span>
+            </motion.a>
           ) : skill.icon == "cv" ? (
-            <a
+            <motion.a
+              aria-label="Descargar Currículum Vitae"
               href={cv}
               download="CV-Pablo Moreno Martinez"
               target="_blank"
-              className={`flex items-center px-4 py-2 gap-2 rounded-[4px] text-primary font-bold bg-[#FFC86B] hover:bg-[#FFC86B80] transition-colors`}
+              className="group bg-secondary text-primary font-black px-4 py-2 flex items-center gap-2 rounded-full outline-none"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              <div>
-                <StackIcon icon={skill.icon} />
-              </div>
-              <div>{skill.name}</div>
-            </a>
+              <StackIcon icon={skill.icon} />
+              <span>{skill.name}</span>
+            </motion.a>
           ) : (
             <div
-              className={`flex items-center px-2 py-0 gap-2 rounded-[4px] text-primaryText`}
+              className={`flex items-center px-2 py-0 gap-2 rounded-full text-primaryText`}
               style={{ background: skill.color }}
             >
               <div>
@@ -128,14 +106,15 @@ const ExperienceCard = ({ experience }) => (
 );
 
 const Experience = () => {
+  const { ref } = useSectionInView("experience", 0.2);
+
   return (
     <>
-      <motion.div whileInView={inView} initial={inViewInitial}>
-        <p className={`${styles.sectionSubText}`}>Mi historial</p>
+      <motion.div whileInView={inViewAnim} initial={inViewInitial}>
         <h2 className={`${styles.sectionHeadText}`}>Experiencia.</h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-col">
+      <div ref={ref} className="mt-20 flex flex-col font-poiret">
         <VerticalTimeline lineColor={"#FFC86B"}>
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />

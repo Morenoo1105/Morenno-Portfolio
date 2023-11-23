@@ -6,6 +6,8 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn } from "../utils/motion";
 import InputComponent from "./InputComponent";
 import { contact } from "../assets";
+import { useSectionInView } from "../hooks/useSectionInView";
+import { TbMailForward } from "react-icons/tb";
 
 const LoadingCircle = () => (
   <div className="relative flex flex-1 items-center justify-center w-full h-full">
@@ -19,6 +21,8 @@ const LoadingCircle = () => (
 );
 
 const Contact = () => {
+  const { ref } = useSectionInView("contact", 0.75);
+
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -115,14 +119,26 @@ const Contact = () => {
   };
 
   return (
-    <div className="xl:mt-12 w-full flex overflow-hidden pb-2">
+    <div
+      ref={ref}
+      className="xl:mt-12 w-full flex overflow-hidden pb-2 font-poiret"
+    >
       <motion.div
         variants={fadeIn("up", "tween", 0.2, 0.4)}
         className="bg-tertiary relative w-full flex lg:flex-row flex-col gap-5 p-8 rounded-2xl shadow-underShadow"
       >
         <div className="flex-1">
-          <p className={`${styles.sectionSubText}`}>¡Di hola!</p>
           <h3 className={`${styles.sectionHeadText}`}>Contacto.</h3>
+          <p className="textBalance mt-3 text-primaryText text-[17px] max-w-xl leading-[30px] font-poiret">
+            Rellena este formulario o habla conmigo directamente en{" "}
+            <a
+              className="text-secondary hover:text-secondary/75"
+              aria-label="Enviar email a info@morenno.net"
+              href="mailto:info@morenno.net"
+            >
+              <TbMailForward className="inline" /> info@morenno.net
+            </a>
+          </p>
           <form
             ref={formRef}
             onSubmit={handleSubmit}

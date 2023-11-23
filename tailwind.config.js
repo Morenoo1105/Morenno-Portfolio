@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         garamond: ["EB_Garamond"],
         poiret: ["Poiret One"],
+        comfortaa: ["Comfortaa"],
       },
       screens: {
         xs: "450px",

@@ -1,15 +1,12 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 
-import * as THREE from "three";
-
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Preload, useGLTF } from "@react-three/drei";
+import { Float, PerspectiveCamera, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import useMousePosition from "../../hooks/useMousePosition";
 import useMapRange from "../../hooks/useMapRange";
 
-const Heads = ({ isMobile }) => {
+const Heads = () => {
   const { nodes } = useGLTF("./monieco/monieco.gltf");
 
   const ref = useRef();
@@ -17,8 +14,8 @@ const Heads = ({ isMobile }) => {
   const mousePos = useMousePosition();
 
   const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+    width: null,
+    height: null,
   });
 
   const [entered, setEntered] = useState(false);
@@ -43,24 +40,15 @@ const Heads = ({ isMobile }) => {
   }, []);
 
   useFrame(() => {
-    const x = isMobile
-      ? useMapRange(mousePos.x, 0, windowSize.width, -2, 2)
-      : useMapRange(mousePos.x, 0, windowSize.width, -4, 2.5);
-    const y = isMobile
-      ? useMapRange(mousePos.y, 0, windowSize.height, -1.5, 3)
-      : useMapRange(mousePos.y, 0, windowSize.height, -2, 2);
+    const x = useMapRange(mousePos.x, 0, windowSize.width, 2, -2);
+    const y = useMapRange(mousePos.y, 0, windowSize.height, -0.7, 2);
 
-    entered ? ref.current.lookAt(x, y, 2) : ref.current.lookAt(-0.4, -0.2, 2);
+    entered ? ref.current.lookAt(x, y, -2) : ref.current.lookAt(0.4, 0.2, -2);
   });
 
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={3}>
-      <group
-        ref={ref}
-        scale={isMobile ? 3 : 2}
-        rotation={[0, 0, 0]}
-        position={[0, 0, 0]}
-      >
+    <Float speed={6} rotationIntensity={1} floatIntensity={1}>
+      <group ref={ref} scale={3} rotation={[0, 0, 0]} position={[0, 0, 0]}>
         <mesh geometry={nodes.Cube001.geometry}>
           <meshStandardMaterial
             color="#C7A58C"
@@ -88,41 +76,41 @@ const Heads = ({ isMobile }) => {
 };
 
 const HeadsCanvas = () => {
-  const isMobile = useMediaQuery("(max-width:1024px)");
-
-  const light = new THREE.HemisphereLight(0xffffff, 0x404040, 0.3);
-  const rectLight1 = new THREE.RectAreaLight(0xffffff, 4, 20, 20);
-  const rectLight2 = new THREE.RectAreaLight(0xffffff, 10, 20, 20);
-  const rectLight3 = new THREE.RectAreaLight(0xffffff, 10, 20, 20);
+  const camConfig = { aspect: 1, fov: 25, far: 500, position: [0, 1, 20] };
 
   return (
-    <Canvas
-      onCreated={({ camera, scene }) => {
-        rectLight1.position.set(-22, -0.4, 0);
-        rectLight1.lookAt(0, 0, 0);
+    <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+      <PerspectiveCamera makeDefault {...camConfig}>
+        <hemisphereLight
+          color={"0xffffff"}
+          groundColor={"0x404040"}
+          intensity={0.3}
+        />
 
-        rectLight2.position.set(0, -0.4, 0);
-        rectLight2.lookAt(0, 0, 0);
+        <rectAreaLight
+          position={[-22, -0.4, 0]}
+          intensity={3}
+          width={20}
+          height={20}
+        />
 
-        rectLight3.position.set(-2, -4, -40);
-        rectLight3.lookAt(0, 0, 0);
+        <rectAreaLight
+          position={[0, -0.4, 0]}
+          intensity={2}
+          width={20}
+          height={20}
+        />
 
-        camera.fov = 25;
-        camera.far = 500;
-        camera.position.set(0, 0, -20);
-        camera.lookAt(0, 0, 0);
+        <rectAreaLight
+          position={[-2, -4, -40]}
+          intensity={2}
+          width={20}
+          height={20}
+        />
+      </PerspectiveCamera>
 
-        camera.add(light);
-        camera.add(rectLight1);
-        camera.add(rectLight2);
-        camera.add(rectLight3);
-        scene.add(camera);
-      }}
-      shadows
-      gl={{ preserveDrawingBuffer: true }}
-    >
       <Suspense fallback={<CanvasLoader />}>
-        <Heads isMobile={isMobile} />
+        <Heads />
       </Suspense>
 
       <Preload all />
