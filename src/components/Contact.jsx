@@ -41,6 +41,7 @@ const Contact = () => {
 
     setForm({ ...form, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -144,6 +145,7 @@ const Contact = () => {
               info@morenno.net
             </a>
           </p>
+
           <form
             ref={formRef}
             onSubmit={handleSubmit}

@@ -101,7 +101,7 @@ const ExperienceCard = ({ experience }) => {
               </motion.a>
             ) : (
               <div
-                className={`flex items-center px-2 py-0 gap-2 rounded-full font-black dark:font-normal text-tertiary dark:text-primaryText`}
+                className={`transition-none flex items-center px-2 py-0 gap-2 rounded-full font-black dark:font-normal text-tertiary dark:text-primaryText`}
                 style={{
                   background:
                     theme == "light" && skill.color == "#08081B80"
@@ -109,8 +109,8 @@ const ExperienceCard = ({ experience }) => {
                       : skill.color,
                 }}
               >
-                <div>
-                  <StackIcon icon={skill.icon} />
+                <div className="transition-none">
+                  <StackIcon icon={skill.icon} className="transition-none" />
                 </div>
                 <div>{skill.name}</div>
               </div>

@@ -5,14 +5,17 @@ import { TbArrowRight, TbBrandGithubFilled, TbDownload } from "react-icons/tb";
 import { TfiLinkedin } from "react-icons/tfi";
 
 import { useSectionInView } from "../hooks/useSectionInView";
+import { cv } from "../assets";
 
 const Y = ({ children }) => (
-  <span className="text-secondary font-comfortaa font-extralight">
+  <span className="text-secondary font-comfortaa font-extralight transition-none">
     {children}
   </span>
 );
 
-const G = ({ children }) => <span className="font-garamond">{children}</span>;
+const G = ({ children }) => (
+  <span className="font-garamond transition-none">{children}</span>
+);
 
 const Intro = () => {
   const { ref } = useSectionInView("home", 0.75);
@@ -73,11 +76,13 @@ const Intro = () => {
             whileTap={{ scale: 0.9 }}
           >
             <span>¿Quieres hablar?</span>
-            <TbArrowRight className="opacity-70 group-hover:rotate-[90deg] transition" />
+            <TbArrowRight className="opacity-70 group-hover:rotate-[90deg] !transition" />
           </motion.a>
           <motion.a
             aria-label="Descargar Currículum Vitae"
-            href="#"
+            href={cv}
+            download="CV-Pablo Moreno Martinez"
+            target="_blank"
             className="bg-tertiary/10 dark:bg-tertiary text-tertiary dark:text-secondary px-7 py-3 flex items-center gap-2 rounded-full outline-none"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

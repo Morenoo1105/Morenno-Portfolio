@@ -122,7 +122,7 @@ const ProjectCard = ({
                   <Tooltip visible={hovered} message={tag.name} />
                   <div
                     key={tag.name}
-                    className={`text-[20px] text-tertiary dark:text-primaryText p-1 rounded-md cursor-help z-[3]`}
+                    className={`transition-none text-[20px] text-tertiary dark:text-primaryText p-1 rounded-md cursor-help z-[3]`}
                     style={{
                       background:
                         theme == "light" && tag.color == "#08081B80"
@@ -132,7 +132,7 @@ const ProjectCard = ({
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                   >
-                    <StackIcon icon={tag.icon} />
+                    <StackIcon icon={tag.icon} className="transition-none" />
                   </div>
                 </li>
               );

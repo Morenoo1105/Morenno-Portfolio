@@ -101,6 +101,12 @@ const HeadsCanvas = () => {
           height={20}
         />
 
+        <rectAreaLight
+          position={[0, 10, -10]}
+          intensity={1}
+          width={20}
+          height={20}
+        />
       </PerspectiveCamera>
 
       <Suspense fallback={<CanvasLoader />}>

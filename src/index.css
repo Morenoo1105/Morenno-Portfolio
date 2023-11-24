@@ -82,15 +82,6 @@ svg {
   transform: translateZ(0);
 }
 
-@keyframes blink {
-  0% {
-    opacity: 100%;
-  }
-  50% {
-    opacity: 0%;
-  }
-}
-
 @keyframes mulShdSpin {
   0%,
   100% {

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import React from "react";
 import { navLinks } from "../constants";
 import { TbLanguage, TbMoonFilled, TbSunFilled } from "react-icons/tb";
@@ -9,19 +9,44 @@ import { useTheme } from "../context/theme-context";
 const DarkToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
+  const [scope, animate] = useAnimate();
+
+  const handleAnimate = async () => {
+    await animate("#circle", { scale: 1 });
+    animate(theme == "dark" ? "#sun" : "#moon", { scale: 1 });
+    animate(theme == "light" ? "#sun" : "#moon", { scale: 0 });
+    await toggleTheme();
+    animate(theme == "dark" ? "#sun" : "#moon", { scale: 1 });
+    animate(theme == "light" ? "#sun" : "#moon", { scale: 0 });
+    await animate("#circle", { scale: 0 }, { delay: 0.2 });
+  };
+
   return (
-    <button
-      className="flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary transition-none"
-      onClick={() => {
-        toggleTheme();
-      }}
-    >
-      {theme == "light" ? (
-        <TbSunFilled className="transition-none" />
-      ) : (
-        <TbMoonFilled className="transition-none" />
-      )}
-    </button>
+    <AnimatePresence>
+      <button
+        ref={scope}
+        aria-label={`Cambiar a modo ${theme == "light" ? "oscuro" : "claro"}`}
+        className="relative flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-tertiary dark:text-primaryText dark:hover:text-secondary transition-none"
+        onClick={() => {
+          handleAnimate();
+        }}
+      >
+        <motion.div
+          initial={{ scale: 0 }}
+          id="circle"
+          className="absolute z-10 w-5 h-5 bg-tertiary dark:bg-secondary rounded-full"
+        />
+
+        <TbSunFilled
+          id="sun"
+          className={`${theme == "dark" && "scale-0"} absolute transition-none`}
+        />
+        <TbMoonFilled
+          id="moon"
+          className={`${theme == "light" && "scale-0"} transition-none`}
+        />
+      </button>
+    </AnimatePresence>
   );
 };
 
@@ -47,10 +72,11 @@ const Header = () => {
               animate={{ y: 0, opacity: 1 }}
             >
               <a
+                aria-label={`Desplazarse a la sección ${link.title}`}
                 className={`flex w-full items-center justify-center px-3 py-3 ${
                   link.id == activeSection
-                    ? "text-secondary dark:text-tertiary hover:text-primaryText"
-                    : "text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary"
+                    ? "text-secondary hover:text-primaryText dark:text-tertiary hover:dark:text-primaryText"
+                    : "text-tertiary/50 hover:text-tertiary dark:text-primaryText dark:hover:text-secondary"
                 }   transition-colors`}
                 href={`#${link.id}`}
                 onClick={() => {
@@ -75,7 +101,7 @@ const Header = () => {
             </motion.li>
           ))}
           <motion.li
-            className="w-[0.1rem] h-2/3 bg bg-tertiary/25 dark:bg-secondary bg-opacity-50 rounded-full"
+            className="w-[0.1rem] h-2/3 bg bg-tertiary/25 dark:bg-secondary bg-opacity-50 rounded-full mx-3 sm:mx-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
@@ -86,7 +112,8 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
           >
             <a
-              className="flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-primaryText dark:text-primaryText dark:hover:text-secondary transition-none"
+              aria-label="Visit english website"
+              className="flex w-full items-center justify-center mx-3 my-3 text-tertiary/50 hover:text-tertiary dark:text-primaryText dark:hover:text-secondary transition-none"
               href="https://morenno.net/"
             >
               <TbLanguage />

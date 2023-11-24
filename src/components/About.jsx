@@ -7,12 +7,14 @@ import UserCard from "./UserCard";
 import { useSectionInView } from "../hooks/useSectionInView";
 
 const Y = ({ children }) => (
-  <span className="text-secondary font-comfortaa font-semibold dark:font-extralight">
+  <span className="transition-none text-secondary font-comfortaa font-semibold dark:font-extralight">
     {children}
   </span>
 );
 
-const G = ({ children }) => <span className="font-garamond">{children}</span>;
+const G = ({ children }) => (
+  <span className="transition-none font-garamond">{children}</span>
+);
 
 const About = () => {
   const { ref } = useSectionInView("about", 0.5);
@@ -41,7 +43,7 @@ const About = () => {
           className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           Con ganas de empezar a crear <Y>relaciones largas</Y> y{" "}
-          <Y>valiosas</Y> mientras sigo aprendiendo para conseguir el{" "}
+          <Y>valiosas</Y> mientras sigo aprendiendo para llegar al{" "}
           <Y>mejor resultado posible</Y>
           <G>.</G>
         </motion.p>
@@ -51,10 +53,12 @@ const About = () => {
           className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"
         >
           <Y>Hace 5 años</Y> descubrí el{" "}
-          <sup className="text-[10px]">(a veces)</sup> divertido mundo del
-          desarrollo front-end gracias a la univesidad<G>.</G> Desde entonces
+          <sup className="transition-none text-[10px]">(a veces)</sup> divertido
+          mundo del desarrollo front-end gracias a la univesidad<G>.</G> Desde
+          entonces
           <G>,</G> no he parado de investigar<G>.</G>
         </motion.p>
+
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="textBalance mt-4 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[20px] max-w-xl leading-[30px]"

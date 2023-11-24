@@ -19,9 +19,6 @@ module.exports = {
       screens: {
         xs: "450px",
       },
-      animation: {
-        blink: "blink 1s linear infinite",
-      },
       boxShadow: {
         underShadow: "0 3px 0 #FFC86B",
         underShadowHide: "0 0 0 #FFC86B",

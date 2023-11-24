@@ -22,10 +22,10 @@ const Tech = () => {
         <h2 className={`${styles.sectionHeadText}`}>Conocimientos.</h2>
       </motion.div>
 
-      <div className="w-full flex">
+      <div className="w-full flex transition-none">
         <motion.div
           variants={fadeIn("", "", 0.1, 1)}
-          className="textBalance mt-3 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[17px] max-w-3xl leading-[30px] font-poiret"
+          className="textBalance mt-3 font-semibold dark:font-normal text-tertiary dark:text-primaryText text-[17px] max-w-3xl leading-[30px] font-poiret transition-none"
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -38,7 +38,9 @@ const Tech = () => {
               {stack.map((item) => (
                 <div key={item.label}>
                   {item === selectedTab ? (
-                    <p className="w-full max-w-xl">{item.text}</p>
+                    <p className="w-full max-w-xl transition-none">
+                      {item.text}
+                    </p>
                   ) : null}
                 </div>
               ))}
